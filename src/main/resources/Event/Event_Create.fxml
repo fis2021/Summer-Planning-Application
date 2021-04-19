@@ -5,12 +5,13 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.EventCreateController">
    <children>
       <ButtonBar layoutX="14.0" layoutY="746.0" prefHeight="40.0" prefWidth="1172.0">
         <buttons>
@@ -20,27 +21,28 @@
       </ButtonBar>
       <GridPane layoutX="14.0" layoutY="14.0" prefHeight="724.0" prefWidth="1172.0">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="581.0" minWidth="10.0" prefWidth="254.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="938.0" minWidth="10.0" prefWidth="918.0" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="87.0" minHeight="10.0" prefHeight="83.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="101.0" minHeight="10.0" prefHeight="101.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="111.0" minHeight="10.0" prefHeight="77.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="140.0" minHeight="0.0" prefHeight="86.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="363.0" minHeight="10.0" prefHeight="343.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label prefHeight="35.0" prefWidth="200.0" text="Name" />
-            <Label prefHeight="35.0" prefWidth="200.0" text="Description" GridPane.rowIndex="1" />
-            <Label prefHeight="35.0" prefWidth="200.0" text="Price" GridPane.rowIndex="2" />
-            <Label prefHeight="35.0" prefWidth="200.0" text="Image" GridPane.rowIndex="4" />
+            <Label prefHeight="35.0" prefWidth="200.0" text="Name" GridPane.halignment="CENTER" />
+            <Label prefHeight="35.0" prefWidth="200.0" text="Description" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+            <Label prefHeight="35.0" prefWidth="200.0" text="Price" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+            <Label prefHeight="35.0" prefWidth="200.0" text="Image" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
             <TextField fx:id="nameField" prefHeight="50.0" GridPane.columnIndex="1" />
             <TextField fx:id="descriptionField" prefHeight="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Label prefHeight="35.0" prefWidth="200.0" text="Date" GridPane.rowIndex="3" />
-            <TextField fx:id="priceField" maxWidth="150.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <DatePicker fx:id="datePicker" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Button mnemonicParsing="false" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label prefHeight="35.0" prefWidth="200.0" text="Date" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+            <TextField fx:id="priceField" maxWidth="150.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+            <DatePicker fx:id="datePicker" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+            <Button mnemonicParsing="false" onAction="#handleChooseImageAction" text="Select Image" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+            <ImageView fx:id="imagePreView" fitHeight="339.0" fitWidth="705.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
          </children>
       </GridPane>
    </children>
