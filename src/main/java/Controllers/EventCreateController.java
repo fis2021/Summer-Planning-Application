@@ -54,8 +54,8 @@ public class EventCreateController {
 
         fileChooser.showOpenDialog(frame);
         File selectedFile = fileChooser.getSelectedFile();
-        BufferedImage bufferedImage;
         try{
+            BufferedImage bufferedImage;
             bufferedImage = ImageIO.read(selectedFile);
             javafx.scene.image.Image image = SwingFXUtils.toFXImage(bufferedImage, null);
             imagePreView.setImage(image);

@@ -28,7 +28,7 @@ public class Event {
     public String getDescription() {return description;}
     public void setDescription(String description) {this.description = description;}
 
-    public String getImage() {return imagePath;}
+    public String getImagePath() {return imagePath;}
     public void setImage(String image) {this.imagePath = imagePath;}
 
     public double getPrice() {return price;}
