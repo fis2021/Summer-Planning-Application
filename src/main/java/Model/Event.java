@@ -2,21 +2,22 @@ package Model;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.time.LocalDate;
+import java.util.Date;
+
 
 public class Event {
     private String name;
     private String description;
-    private BufferedImage image;
+    private String imagePath;
     private double price;
-    private LocalDate date;
+    private String date;
 
     public Event() {}
 
-    public Event(String Name, String description, BufferedImage image, double price, LocalDate date) {
+    public Event(String name, String description, String imagePath, double price, String date) {
         this.name = name;
         this.description = description;
-        this.image = image;
+        this.imagePath = imagePath;
         this.price = price;
         this.date = date;
     }
@@ -27,12 +28,12 @@ public class Event {
     public String getDescription() {return description;}
     public void setDescription(String description) {this.description = description;}
 
-    public BufferedImage getImage() {return image;}
-    public void setImage(BufferedImage image) {this.image = image;}
+    public String getImage() {return imagePath;}
+    public void setImage(String image) {this.imagePath = imagePath;}
 
     public double getPrice() {return price;}
     public void setPrice(double price) {this.price = price; }
 
-    public LocalDate getDate() {return date;}
-    public void setDate(LocalDate date) {this.date = date;}
+    public String getDate() {return date;}
+    public void setDate(String date) {this.date = date;}
 }

@@ -1,5 +1,7 @@
 package Controllers;
 
+import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
@@ -12,9 +14,13 @@ import javafx.scene.image.ImageView;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.text.DateFormatter;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 import Services.EventService;
 
@@ -35,7 +41,7 @@ public class EventCreateController {
     @FXML
     private ImageView imagePreView;
 
-    private BufferedImage bufferedImage;
+    private String imagePath;
 
     @FXML
     private void handleChooseImageAction(){
@@ -48,19 +54,28 @@ public class EventCreateController {
 
         fileChooser.showOpenDialog(frame);
         File selectedFile = fileChooser.getSelectedFile();
+        BufferedImage bufferedImage;
         try{
             bufferedImage = ImageIO.read(selectedFile);
-
             javafx.scene.image.Image image = SwingFXUtils.toFXImage(bufferedImage, null);
             imagePreView.setImage(image);
+            imagePath = selectedFile.getPath();
         }
         catch (Exception e){}
     }
 
     @FXML
     private void handleOkAction(){
+        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd LLLL yyyy");
+        String dateString = datePicker.getValue().format(dateFormatter);
         EventService.addEvent(nameField.getText(), descriptionField.getText(),
-                bufferedImage, Double.parseDouble(priceField.getText()), datePicker.getValue());
+                imagePath, Double.parseDouble(priceField.getText()), dateString);
+    }
+
+    @FXML
+    private void handleCancelAction(){
+        Platform.exit();
+        System.exit(0);
     }
 
     public void setPriceField(TextField priceField) {
