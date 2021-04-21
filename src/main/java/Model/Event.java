@@ -6,7 +6,6 @@ import java.util.Date;
 
 
 public class Event {
-    private static int IDReference;
     private String eventID;
     private String name;
     private String description;
@@ -22,8 +21,6 @@ public class Event {
         this.imagePath = imagePath;
         this.price = price;
         this.date = date;
-        this.eventID = String.valueOf(IDReference + 1000);
-        IDReference++;
     }
 
     public String getName() {return name;}
@@ -40,4 +37,7 @@ public class Event {
 
     public String getDate() {return date;}
     public void setDate(String date) {this.date = date;}
+
+    public String getEventID() {return eventID;}
+    public void setEventID(String eventID) {this.eventID = eventID;}
 }

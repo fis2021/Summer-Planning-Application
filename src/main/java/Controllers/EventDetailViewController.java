@@ -49,7 +49,7 @@ public class EventDetailViewController {
 
             titleLabel.setText(event.getName());
             descriptionLabel.setText(event.getDescription());
-            dateLabel.setText(event.getDate());
+            dateLabel.setText(event.getEventID());
             priceLabel.setText(String.valueOf(event.getPrice()));
 
             try {

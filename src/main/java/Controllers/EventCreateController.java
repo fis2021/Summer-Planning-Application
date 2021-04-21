@@ -76,7 +76,7 @@ public class EventCreateController {
     @FXML
     private void handleCancelAction(){
         Platform.exit();
-        System.exit(0);
+        //System.exit(0);
     }
 
     public void setPriceField(TextField priceField) {
