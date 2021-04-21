@@ -1,16 +1,9 @@
 package Services;
 
 import javafx.collections.ObservableList;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.ObjectRepository;
 import Model.Event;
-
-import javax.validation.constraints.Null;
-import java.awt.image.BufferedImage;
-import java.util.Date;
-import java.util.Objects;
 
 import static Services.FileSystemService.getPathToFile;
 

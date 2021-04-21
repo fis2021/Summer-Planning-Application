@@ -12,7 +12,7 @@
    <children>
       <AnchorPane prefHeight="800.0" prefWidth="1200.0">
          <children>
-            <ListView fx:id="eventList" prefHeight="800.0" prefWidth="1200.0" />
+            <ListView fx:id="eventList" onMouseClicked="#handleMouseClick" prefHeight="800.0" prefWidth="1200.0" />
          </children>
       </AnchorPane>
    </children>
