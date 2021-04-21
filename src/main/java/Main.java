@@ -13,8 +13,8 @@ public class Main extends Application{
 
     @Override
     public void start(Stage stage) throws Exception{
-        //initDirectory();
-        //EventService.initDatabase();
+        initDirectory();
+        EventService.initDatabase();
         Parent root = FXMLLoader.load(getClass().getResource("EventUI/Event_Browse.fxml"));
         stage.setTitle("EventBrowseUI");
         stage.setScene(new Scene(root,1200,800));
