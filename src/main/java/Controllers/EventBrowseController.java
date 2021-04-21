@@ -1,9 +1,7 @@
 package Controllers;
 
 import Model.Event;
-import Model.EventListViewCell;
 import Services.EventService;
-import Controllers.EventDetailViewController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -12,7 +10,6 @@ import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.util.Callback;
 
-import java.awt.event.MouseEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
 

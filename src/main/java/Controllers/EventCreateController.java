@@ -1,5 +1,6 @@
 package Controllers;
 
+import Model.Event;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -68,8 +69,8 @@ public class EventCreateController {
     private void handleOkAction(){
         DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd LLLL yyyy");
         String dateString = datePicker.getValue().format(dateFormatter);
-        EventService.addEvent(nameField.getText(), descriptionField.getText(),
-                imagePath, Double.parseDouble(priceField.getText()), dateString);
+        EventService.addEvent(new Event(nameField.getText(), descriptionField.getText(),
+                imagePath, Double.parseDouble(priceField.getText()), dateString));
     }
 
     @FXML

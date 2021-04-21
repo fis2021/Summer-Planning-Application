@@ -27,7 +27,7 @@ public class EventService {
         catch (NullPointerException e){ System.out.println("Asd");}
     }
 
-    public static void addEvent(String name, String description, String imagePath, double price, String date){
-        eventRepository.insert(new Event(name,description, imagePath, price, date));
+    public static void addEvent(Event event){
+        eventRepository.insert(event);
     }
 }

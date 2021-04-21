@@ -1,5 +1,6 @@
-package Model;
+package Controllers;
 
+import Model.Event;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
