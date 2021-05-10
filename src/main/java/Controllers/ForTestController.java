@@ -37,4 +37,29 @@ public class ForTestController {
         }
         catch (IOException e){}
     }
+    @FXML
+    private void openRegister(){
+        try{
+            Parent root;
+            FXMLLoader mLLoader = new FXMLLoader(getClass().getResource("/UserUI/Register.fxml"));
+            root = mLLoader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Register");
+            stage.setScene(new Scene(root, 1200, 800));
+            stage.show();
+        }catch (IOException e){}
+    }
+
+    @FXML
+    private void openLogin(){
+        try{
+            Parent root;
+            FXMLLoader mLLoader = new FXMLLoader(getClass().getResource("/UserUI/Login.fxml"));
+            root = mLLoader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Login");
+            stage.setScene(new Scene(root, 1200, 800));
+            stage.show();
+        }catch (IOException e){}
+    }
 }
