@@ -21,6 +21,12 @@ public class EventService {
                 .openOrCreate("test", "test");
 
         eventRepository = database.getRepository(Event.class);
+
+        for(Event event : eventRepository.find()){
+            if(event.getEventID() != null)
+                if(maxEID<Integer.parseInt(event.getEventID())) maxEID = Integer.parseInt(event.getEventID());
+        }
+
     }
 
     public static void getEvents(ObservableList<Event> events){
@@ -29,19 +35,11 @@ public class EventService {
                 events.add(event);
             }
         }
-        catch (NullPointerException e){ System.out.println("Asd");}
+        catch (NullPointerException e){}
     }
 
     public static void addEvent(Event event){
-        if(maxEID == 0) {
-            try {
-                for (Event e : eventRepository.find()) {
-                    if (Integer.getInteger(e.getEventID()) > maxEID) maxEID = Integer.getInteger(e.getEventID());
-                }
-            } catch (NullPointerException e) {
-                System.out.println("Asd");
-            }
-        }
+
         event.setEventID(String.valueOf(++maxEID));
         eventRepository.insert(event);
     }

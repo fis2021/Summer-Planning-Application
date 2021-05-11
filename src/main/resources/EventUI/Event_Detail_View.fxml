@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane gridLinesVisible="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane gridLinesVisible="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1200.0" style="-fx-background-color: GRAY; -fx-border-color: ORANGE;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="1200.0" minWidth="10.0" prefWidth="1166.0" />
   </columnConstraints>
@@ -18,10 +18,10 @@
   </rowConstraints>
    <children>
       <ImageView fx:id="imageView" fitHeight="423.0" fitWidth="532.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="LEFT" GridPane.valignment="TOP" />
-      <Label fx:id="titleLabel" prefHeight="50.0" prefWidth="500.0" text="Title" GridPane.halignment="RIGHT" GridPane.valignment="TOP" />
-      <Label fx:id="priceLabel" prefHeight="50.0" prefWidth="500.0" text="Price" GridPane.halignment="RIGHT" GridPane.valignment="BOTTOM" />
-      <Label fx:id="dateLabel" prefHeight="50.0" prefWidth="500.0" text="Date" GridPane.halignment="RIGHT" />
-      <Label fx:id="descriptionLabel" prefHeight="250.0" prefWidth="1150.0" text="Description" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-      <Button mnemonicParsing="false" prefHeight="54.0" prefWidth="214.0" text="Reserve" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+      <Label fx:id="titleLabel" alignment="CENTER" prefHeight="50.0" prefWidth="500.0" style="-fx-background-color: ORANGE;" text="Title" GridPane.halignment="RIGHT" GridPane.valignment="TOP" />
+      <Label fx:id="priceLabel" alignment="CENTER" prefHeight="50.0" prefWidth="500.0" style="-fx-background-color: ORANGE;" text="Price" GridPane.halignment="RIGHT" GridPane.valignment="BOTTOM" />
+      <Label fx:id="dateLabel" alignment="CENTER" prefHeight="50.0" prefWidth="500.0" style="-fx-background-color: ORANGE;" text="Date" GridPane.halignment="RIGHT" />
+      <Label fx:id="descriptionLabel" prefHeight="250.0" prefWidth="1150.0" style="-fx-background-color: WHITE; -fx-border-color: ORANGE; -fx-border-width: 5;" text="Description" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+      <Button mnemonicParsing="false" prefHeight="54.0" prefWidth="214.0" style="-fx-border-color: ORANGE; -fx-border-width: 5;" text="Reserve" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
    </children>
 </GridPane>

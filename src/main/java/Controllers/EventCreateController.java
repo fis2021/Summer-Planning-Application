@@ -4,6 +4,7 @@ import Model.Event;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.embed.swing.SwingFXUtils;
@@ -17,6 +18,7 @@ import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.text.DateFormatter;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.time.ZoneId;
@@ -41,6 +43,7 @@ public class EventCreateController {
 
     @FXML
     private ImageView imagePreView;
+
 
     private String imagePath;
 
@@ -73,13 +76,9 @@ public class EventCreateController {
                 imagePath, Double.parseDouble(priceField.getText()), dateString);
         event.setOrganizatorID("00");
         EventService.addEvent(event);
+
     }
 
-    @FXML
-    private void handleCancelAction(){
-        Platform.exit();
-        //System.exit(0);
-    }
 
     public void setPriceField(TextField priceField) {
         this.priceField = priceField;

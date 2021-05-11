@@ -5,6 +5,7 @@ import Services.EventService;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -12,11 +13,16 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import java.awt.event.ActionEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -49,6 +55,9 @@ public class EventEditController {
 
     @FXML
     private Button cancelButton;
+
+    @FXML
+    private GridPane gridPane;
 
     private Event currentEvent;
 
@@ -88,15 +97,14 @@ public class EventEditController {
     }
 
     public void showCurrentEventInfo(Event event){
-        Parent root;
         currentEvent = event;
         imagePath = event.getImagePath();
         try{
             FXMLLoader mLLoader = new FXMLLoader(getClass().getResource("/EventUI/Event_Edit.fxml"));
             mLLoader.setController(this);
-            root = mLLoader.load();
+            Parent root = mLLoader.load();
             Stage stage = new Stage();
-            stage.setTitle(event.getName());
+            stage.setTitle("asd");
             stage.setScene(new Scene(root,1200,800));
             stage.show();
 
@@ -123,7 +131,8 @@ public class EventEditController {
         }
     }
 
-    public void handleEditAction() {
+    @FXML
+    private void handleEditAction() {
         if (Objects.equals(editButton.getText(), "Edit")) {
             titleTextField.setEditable(true);
             datePicker.setEditable(true);
@@ -144,6 +153,12 @@ public class EventEditController {
             editedEvent.setEventID(currentEvent.getEventID());
 
             EventService.updateEvent(editedEvent);
+            gridPane.getScene().getWindow().hide();
         }
+    }
+
+    @FXML
+    private void handleCancelAction(){
+        gridPane.getScene().getWindow().hide();
     }
 }

@@ -12,13 +12,13 @@ import java.nio.file.Path;
 public class Main extends Application{
 
     @Override
-    public void start(Stage stage) throws Exception{
+    public void start(Stage primarystage) throws Exception{
         initDirectory();
         EventService.initDatabase();
-        Parent root = FXMLLoader.load(getClass().getResource("EventUI/ForTest.fxml"));
-        stage.setTitle("Test");
-        stage.setScene(new Scene(root,1200,800));
-        stage.show();
+        Parent root = FXMLLoader.load(getClass().getResource("/ContainerWindows/Organizator_Container.fxml"));
+        primarystage.setTitle("ORGORG");
+        primarystage.setScene(new Scene(root,1440,800));
+        primarystage.show();
     }
 
     private void initDirectory() {
