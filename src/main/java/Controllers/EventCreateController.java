@@ -69,8 +69,10 @@ public class EventCreateController {
     private void handleOkAction(){
         DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd LLLL yyyy");
         String dateString = datePicker.getValue().format(dateFormatter);
-        EventService.addEvent(new Event(nameField.getText(), descriptionField.getText(),
-                imagePath, Double.parseDouble(priceField.getText()), dateString));
+        Event event = new Event(nameField.getText(), descriptionField.getText(),
+                imagePath, Double.parseDouble(priceField.getText()), dateString);
+        event.setOrganizatorID("00");
+        EventService.addEvent(event);
     }
 
     @FXML

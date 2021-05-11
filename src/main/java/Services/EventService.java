@@ -5,7 +5,10 @@ import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.ObjectRepository;
 import Model.Event;
 
+import java.util.Objects;
+
 import static Services.FileSystemService.getPathToFile;
+import static org.dizitart.no2.objects.filters.ObjectFilters.eq;
 
 public class EventService {
     private static int maxEID = 0;
@@ -14,7 +17,7 @@ public class EventService {
 
     public static void initDatabase() {
         Nitrite database = Nitrite.builder()
-                .filePath(getPathToFile("Summer-Planning-Application.db").toFile())
+                .filePath(getPathToFile("Summer-Planning-Application-Events.db").toFile())
                 .openOrCreate("test", "test");
 
         eventRepository = database.getRepository(Event.class);
@@ -40,6 +43,11 @@ public class EventService {
             }
         }
         event.setEventID(String.valueOf(++maxEID));
+        eventRepository.insert(event);
+    }
+
+    public static void updateEvent(Event event){
+        eventRepository.remove(eq("eventID",event.getEventID()));
         eventRepository.insert(event);
     }
 }

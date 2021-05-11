@@ -29,8 +29,10 @@ public class EventBrowseController implements Initializable {
     @FXML
     private void handleMouseClick(){
 
-        EventDetailViewController eDVController = new EventDetailViewController();
-        eDVController.showEvent(eventList.getSelectionModel().getSelectedItem());
+        /*EventDetailViewController eDVController = new EventDetailViewController();
+        eDVController.showEvent(eventList.getSelectionModel().getSelectedItem());*/
+        EventEditController eEController = new EventEditController();
+        eEController.showCurrentEventInfo(eventList.getSelectionModel().getSelectedItem());
     }
 
     @Override
