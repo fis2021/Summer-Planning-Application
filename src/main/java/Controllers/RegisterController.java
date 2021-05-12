@@ -8,6 +8,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
+import javax.swing.*;
+
 public class RegisterController {
     @FXML
     private PasswordField passwordField;
@@ -25,9 +27,8 @@ public class RegisterController {
     public void handleRegisterAction(){
         try{
             UserService.addUser(textField.getText(), passwordField.getText(), (String) choiceBox.getValue());
-            label.setText("Succes");
         }catch(UsernameAlreadyExistsException e){
-            label.setText("Failure");
+            JOptionPane.showMessageDialog(null, "Username already exists " + UserService.getUser(textField.getText(), passwordField.getText(), (String) choiceBox.getValue()).getUserID(), "ERROR", JOptionPane.INFORMATION_MESSAGE);
         }
     }
 }

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1440.0" style="-fx-background-color: ORANGE; -fx-border-color: GRAY; -fx-border-width: 5;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Participant.UserContainerController">
+    <children>
+        <SplitPane dividerPositions="0.14275568181818182" layoutY="14.0" prefHeight="760.0" prefWidth="1440.0">
+            <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="758.0" prefWidth="163.0" style="-fx-border-color: ORANGE; -fx-background-color: GRAY;">
+                    <children>
+                        <Label alignment="CENTER" layoutX="9.0" layoutY="14.0" onMouseClicked="#openReservations" prefHeight="50.0" prefWidth="180.0" style="-fx-background-color: ORANGE;" text="Reservations" />
+                        <Label alignment="CENTER" layoutX="9.0" layoutY="93.0" onMouseClicked="#openBrowse" prefHeight="50.0" prefWidth="180.0" style="-fx-background-color: ORANGE;" text="Browse" />
+                    </children>
+                </AnchorPane>
+                <AnchorPane fx:id="mainPane" minHeight="0.0" minWidth="0.0" prefHeight="758.0" prefWidth="1203.0" style="-fx-background-color: GRAY; -fx-border-color: ORANGE;" />
+            </items>
+        </SplitPane>
+    </children>
+</AnchorPane>

@@ -16,7 +16,7 @@
         </rowConstraints>
          <children>
             <Button onAction="#handleLoginAction" mnemonicParsing="false" text="Login" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-            <Button mnemonicParsing="false" text="Register" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+            <Button onAction="#handleRegisterAction" mnemonicParsing="false" text="Register" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
             <Button mnemonicParsing="false" text="Exit" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
             <ChoiceBox fx:id ="choiceBox" prefWidth="150.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
             <PasswordField fx:id ="passwordField" maxWidth="200.0" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />

@@ -1,4 +1,4 @@
-package Controllers;
+package Controllers.Organizator;
 
 import Model.Event;
 import Services.EventService;
