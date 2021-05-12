@@ -55,6 +55,7 @@ public class EventListViewCell extends ListCell<Event> {
             if (mLLoader == null) {
                 mLLoader = new FXMLLoader(getClass().getResource("/EventUI/Event_List_Cell.fxml"));
                 mLLoader.setController(this);
+                //descriptionLabel.setWrapText(true);
 
                 try {
                     mLLoader.load();

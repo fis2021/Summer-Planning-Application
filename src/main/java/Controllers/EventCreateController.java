@@ -1,29 +1,21 @@
 package Controllers;
 
+import Exceptions.InvalidEventDetailsException;
 import Model.Event;
-import javafx.application.Application;
-import javafx.application.Platform;
+import Validators.ValidateEventDetails;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.embed.swing.SwingFXUtils;
-import javafx.stage.FileChooser;
-import javafx.stage.Stage;
-import org.jetbrains.annotations.NotNull;
+import javafx.scene.control.TextArea;
 
 import javafx.scene.image.ImageView;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
-import javax.swing.text.DateFormatter;
-import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 
 import Services.EventService;
 
@@ -33,7 +25,7 @@ public class EventCreateController {
     private TextField nameField;
 
     @FXML
-    private TextField descriptionField;
+    private TextArea descriptionArea;
 
     @FXML
     private TextField priceField;
@@ -70,15 +62,28 @@ public class EventCreateController {
 
     @FXML
     private void handleOkAction(){
-        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd LLLL yyyy");
-        String dateString = datePicker.getValue().format(dateFormatter);
-        Event event = new Event(nameField.getText(), descriptionField.getText(),
-                imagePath, Double.parseDouble(priceField.getText()), dateString);
-        event.setOrganizatorID("00");
-        EventService.addEvent(event);
+        try {
+            ValidateEventDetails VED = new ValidateEventDetails();
+            VED.validateAll(nameField.getText() ,imagePath, priceField.getText(), datePicker.getValue());
+            DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd LLLL yyyy");
+            String dateString = datePicker.getValue().format(dateFormatter);
+            Event event = new Event(nameField.getText(), descriptionArea.getText(),
+                    imagePath, Double.parseDouble(priceField.getText()), dateString);
+            event.setOrganizatorID("00");
+            EventService.addEvent(event);
 
+            nameField.clear();
+            descriptionArea.clear();
+            imagePreView.imageProperty().set(null);
+            priceField.clear();
+            datePicker.setValue(null);
+        }
+        catch (InvalidEventDetailsException e){showMessage(e.getMessage());}
     }
 
+    private void showMessage(String msg){
+        JOptionPane.showMessageDialog(null, msg, "ERROR", JOptionPane.INFORMATION_MESSAGE);
+    }
 
     public void setPriceField(TextField priceField) {
         this.priceField = priceField;
@@ -101,11 +106,11 @@ public class EventCreateController {
         return datePicker;
     }
 
-    public void setDescriptionField(TextField descriptionField) {
-        this.descriptionField = descriptionField;
+    public void setDescriptionArea(TextArea descriptionArea) {
+        this.descriptionArea = descriptionArea;
     }
-    public TextField getDescriptionField() {
-        return descriptionField;
+    public TextArea getDescriptionArea() {
+        return descriptionArea;
     }
 }
 

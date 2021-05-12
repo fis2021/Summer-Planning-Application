@@ -17,7 +17,7 @@
   </rowConstraints>
    <children>
       <Label fx:id="titleLabel" alignment="CENTER" prefHeight="35.0" prefWidth="700.0" style="-fx-background-color: ORANGE;" text="Title" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP" />
-      <Label fx:id="descriptionLabel" alignment="CENTER" prefHeight="150.0" prefWidth="700.0" style="-fx-background-color: ORANGE;" text="Description" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
+      <Label fx:id="descriptionLabel" alignment="CENTER" prefHeight="150.0" prefWidth="700.0" style="-fx-background-color: ORANGE;" text="Description" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
       <Label fx:id="priceLabel" alignment="CENTER" prefHeight="35.0" prefWidth="240.0" style="-fx-background-color: ORANGE;" text="Price" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="TOP" />
       <Label fx:id="dateLabel" alignment="CENTER" prefHeight="35.0" prefWidth="240.0" style="-fx-background-color: ORANGE;" text="Date" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
       <ImageView fx:id="imageView" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />

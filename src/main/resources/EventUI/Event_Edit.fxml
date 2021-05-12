@@ -24,7 +24,7 @@
       <TextField fx:id="titleTextField" maxHeight="50.0" maxWidth="500.0" minHeight="50.0" prefHeight="50.0" promptText="Title" style="-fx-background-color: white; -fx-border-color: ORANGE; -fx-border-width: 5;" GridPane.halignment="RIGHT" GridPane.valignment="TOP" />
       <DatePicker fx:id="datePicker" style="-fx-border-color: ORANGE; -fx-border-width: 5;" GridPane.halignment="RIGHT" />
       <TextField fx:id="priceTextField" maxHeight="50.0" maxWidth="500.0" minHeight="50.0" prefHeight="50.0" promptText="Price" style="-fx-background-color: White; -fx-border-width: 5; -fx-border-color: ORANGE;" GridPane.halignment="RIGHT" GridPane.valignment="BOTTOM" />
-      <TextArea fx:id="descriptionTextArea" prefHeight="200.0" prefWidth="200.0" promptText="Description" style="-fx-border-color: ORANGE; -fx-border-width: 5;" GridPane.rowIndex="1" />
+      <TextArea fx:id="descriptionTextArea" prefHeight="200.0" prefWidth="200.0" promptText="Description" style="-fx-border-color: ORANGE; -fx-border-width: 5;" wrapText="true" GridPane.rowIndex="1" />
       <Button fx:id="chooseImageButton" mnemonicParsing="false" onAction="#handleChooseImageAction" style="-fx-border-color: ORANGE; -fx-border-width: 5;" text="Choose" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
       <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#handleCancelAction" prefHeight="54.0" prefWidth="214.0" style="-fx-border-color: ORANGE; -fx-border-width: 5;" text="Cancel" GridPane.rowIndex="2" />
     </children>

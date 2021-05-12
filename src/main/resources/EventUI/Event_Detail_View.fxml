@@ -21,7 +21,7 @@
       <Label fx:id="titleLabel" alignment="CENTER" prefHeight="50.0" prefWidth="500.0" style="-fx-background-color: ORANGE;" text="Title" GridPane.halignment="RIGHT" GridPane.valignment="TOP" />
       <Label fx:id="priceLabel" alignment="CENTER" prefHeight="50.0" prefWidth="500.0" style="-fx-background-color: ORANGE;" text="Price" GridPane.halignment="RIGHT" GridPane.valignment="BOTTOM" />
       <Label fx:id="dateLabel" alignment="CENTER" prefHeight="50.0" prefWidth="500.0" style="-fx-background-color: ORANGE;" text="Date" GridPane.halignment="RIGHT" />
-      <Label fx:id="descriptionLabel" prefHeight="250.0" prefWidth="1150.0" style="-fx-background-color: WHITE; -fx-border-color: ORANGE; -fx-border-width: 5;" text="Description" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+      <Label fx:id="descriptionLabel" prefHeight="250.0" prefWidth="1150.0" style="-fx-background-color: WHITE; -fx-border-color: ORANGE; -fx-border-width: 5;" text="Description" wrapText="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
       <Button mnemonicParsing="false" prefHeight="54.0" prefWidth="214.0" style="-fx-border-color: ORANGE; -fx-border-width: 5;" text="Reserve" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
    </children>
 </GridPane>

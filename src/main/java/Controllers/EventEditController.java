@@ -115,7 +115,7 @@ public class EventEditController {
 
 
             titleTextField.setText(event.getName());
-            descriptionTextArea.setText(event.getDescription() + " " + event.getEventID());
+            descriptionTextArea.setText(event.getDescription());
             datePicker.setValue(localDateObj);
             priceTextField.setText(String.valueOf(event.getPrice()));
 
@@ -158,7 +158,5 @@ public class EventEditController {
     }
 
     @FXML
-    private void handleCancelAction(){
-        gridPane.getScene().getWindow().hide();
-    }
+    private void handleCancelAction(){gridPane.getScene().getWindow().hide();}
 }
