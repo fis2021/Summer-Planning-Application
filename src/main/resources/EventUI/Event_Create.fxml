@@ -4,6 +4,7 @@
 <?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.Blend?>
 <?import javafx.scene.image.ImageView?>
@@ -12,15 +13,10 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.EventCreateController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1200.0" style="-fx-background-color: ORANGE;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.EventCreateController">
    <children>
-      <ButtonBar layoutX="14.0" layoutY="746.0" prefHeight="40.0" prefWidth="1172.0">
-        <buttons>
-          <Button mnemonicParsing="false" onAction="#handleOkAction" text="OK" />
-            <Button mnemonicParsing="false" onAction="#handleCancelAction" text="Cancel" />
-        </buttons>
-      </ButtonBar>
-      <GridPane gridLinesVisible="true" layoutX="14.0" layoutY="14.0" prefHeight="724.0" prefWidth="1172.0">
+      <ButtonBar layoutX="14.0" layoutY="746.0" prefHeight="40.0" prefWidth="1172.0" />
+      <GridPane gridLinesVisible="true" layoutX="14.0" layoutY="14.0" prefHeight="660.0" prefWidth="1172.0" style="-fx-background-color: GRAY;">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="581.0" minWidth="10.0" prefWidth="254.0" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="938.0" minWidth="10.0" prefWidth="918.0" />
@@ -33,21 +29,22 @@
           <RowConstraints maxHeight="363.0" minHeight="10.0" prefHeight="343.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label prefHeight="35.0" prefWidth="200.0" text="Name" GridPane.halignment="CENTER" />
-            <Label prefHeight="35.0" prefWidth="200.0" text="Description" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-            <Label prefHeight="35.0" prefWidth="200.0" text="Price" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-            <Label prefHeight="35.0" prefWidth="200.0" text="Image" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
-            <TextField fx:id="nameField" prefHeight="50.0" GridPane.columnIndex="1" />
-            <TextField fx:id="descriptionField" prefHeight="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Label prefHeight="35.0" prefWidth="200.0" text="Date" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-            <TextField fx:id="priceField" maxWidth="150.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
-            <DatePicker fx:id="datePicker" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
-            <Button mnemonicParsing="false" onAction="#handleChooseImageAction" text="Select Image" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
-            <ImageView fx:id="imagePreView" fitHeight="340.0" fitWidth="700.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+            <Label alignment="CENTER" prefHeight="35.0" prefWidth="200.0" style="-fx-background-color: ORANGE;" text="Name" GridPane.halignment="CENTER" />
+            <Label alignment="CENTER" prefHeight="35.0" prefWidth="200.0" style="-fx-background-color: ORANGE;" text="Description" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+            <Label alignment="CENTER" prefHeight="35.0" prefWidth="200.0" style="-fx-background-color: ORANGE;" text="Price" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+            <Label alignment="CENTER" prefHeight="35.0" prefWidth="200.0" style="-fx-background-color: ORANGE;" text="Image" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+            <TextField fx:id="nameField" prefHeight="50.0" style="-fx-border-color: ORANGE; -fx-border-width: 5;" GridPane.columnIndex="1" />
+            <Label alignment="CENTER" prefHeight="35.0" prefWidth="200.0" style="-fx-background-color: ORANGE;" text="Date" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+            <TextField fx:id="priceField" maxWidth="150.0" prefWidth="150.0" style="-fx-border-color: ORANGE; -fx-border-width: 5;" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+            <DatePicker fx:id="datePicker" style="-fx-border-color: ORANGE; -fx-border-width: 5;" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+            <Button mnemonicParsing="false" onAction="#handleChooseImageAction" style="-fx-border-color: ORANGE; -fx-border-width: 5;" text="Select Image" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+            <ImageView fx:id="imagePreView" fitHeight="328.0" fitWidth="700.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="4" GridPane.valignment="CENTER">
                <effect>
                   <Blend mode="SCREEN" />
                </effect></ImageView>
+            <TextArea fx:id="descriptionArea" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: ORANGE; -fx-border-width: 5;" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
       </GridPane>
+    <Button layoutX="1102.0" layoutY="683.0" mnemonicParsing="false" onAction="#handleOkAction" prefHeight="25.0" prefWidth="84.0" style="-fx-border-color: GRAY; -fx-border-width: 5;" text="OK" />
    </children>
 </AnchorPane>
