@@ -7,6 +7,7 @@ import java.util.Date;
 
 public class Event {
     private String eventID;
+    private String organizatorID;
     private String name;
     private String description;
     private String imagePath;
@@ -40,4 +41,8 @@ public class Event {
 
     public String getEventID() {return eventID;}
     public void setEventID(String eventID) {this.eventID = eventID;}
+
+    public String getOrganizatorID() {return organizatorID;}
+    public void setOrganizatorID(String organizatorID) {this.organizatorID = organizatorID;}
+
 }

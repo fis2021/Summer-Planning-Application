@@ -4,15 +4,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-      minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0"
-      xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="Controllers.EventBrowseController">
+<VBox fx:id="vBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: GRAY; -fx-border-color: ORANGE;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.EventBrowseController">
    <children>
-      <AnchorPane prefHeight="800.0" prefWidth="1200.0">
+      <AnchorPane prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: GRAY; -fx-border-color: ORANGE;">
          <children>
-            <ListView fx:id="eventList" onMouseClicked="#handleMouseClick" prefHeight="800.0" prefWidth="1200.0" />
+            <ListView  fx:id="eventList" onMouseClicked="#handleMouseClick" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: GRAY; -fx-border-color: ORANGE;" />
          </children>
       </AnchorPane>
    </children>
