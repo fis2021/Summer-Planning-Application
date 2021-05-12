@@ -1,5 +1,6 @@
 package Services;
 
+import Exceptions.EmptyDataBaseException;
 import javafx.collections.ObservableList;
 import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.ObjectRepository;
@@ -22,24 +23,34 @@ public class EventService {
 
         eventRepository = database.getRepository(Event.class);
 
-        for(Event event : eventRepository.find()){
-            if(event.getEventID() != null)
-                if(maxEID<Integer.parseInt(event.getEventID())) maxEID = Integer.parseInt(event.getEventID());
-        }
-
+        maxEID = setMaxEID();
     }
 
-    public static void getEvents(ObservableList<Event> events){
+    private static int setMaxEID(){
+        int m = 0;
+        for(Event event : eventRepository.find()){
+            if(event.getEventID() != null)
+                if(m < Integer.parseInt(event.getEventID())) m = Integer.parseInt(event.getEventID());
+        }
+        return m;
+    }
+
+    public static int getMaxEID() {
+        return maxEID;
+    }
+
+    public static void getEvents(ObservableList<Event> events) throws EmptyDataBaseException{
         try {
             for (Event event : eventRepository.find()) {
                 events.add(event);
             }
         }
-        catch (NullPointerException e){}
+        catch (NullPointerException e){
+            throw new EmptyDataBaseException("DataBase is empty");
+        }
     }
 
     public static void addEvent(Event event){
-
         event.setEventID(String.valueOf(++maxEID));
         eventRepository.insert(event);
     }

@@ -1,5 +1,6 @@
 package Controllers;
 
+import Exceptions.EmptyDataBaseException;
 import Model.Event;
 import Services.EventService;
 import javafx.collections.FXCollections;
@@ -28,8 +29,12 @@ public class EventBrowseController implements Initializable {
 
     public EventBrowseController(){
         events = FXCollections.observableArrayList();
-
-        EventService.getEvents(events);
+        try {
+            EventService.getEvents(events);
+        }
+        catch (EmptyDataBaseException e){
+            events.add(new Event("Empty","Empty","/Images/404.png",0,"Empty"));
+        }
     }
 
     @FXML
