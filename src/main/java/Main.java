@@ -1,4 +1,5 @@
 import Services.EventService;
+import Services.UserService;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -15,6 +16,7 @@ public class Main extends Application{
     public void start(Stage stage) throws Exception{
         initDirectory();
         EventService.initDatabase();
+        UserService.initDatabase();
         Parent root = FXMLLoader.load(getClass().getResource("EventUI/ForTest.fxml"));
         stage.setTitle("Test");
         stage.setScene(new Scene(root,1200,800));
