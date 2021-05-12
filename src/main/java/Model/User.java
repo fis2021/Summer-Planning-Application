@@ -44,6 +44,8 @@ public class User {
         this.username = username;
     }
 
+    public void setUserID(String userID) {this.userID = userID;}
+
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;

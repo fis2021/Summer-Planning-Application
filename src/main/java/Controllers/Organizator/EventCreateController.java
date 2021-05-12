@@ -1,7 +1,8 @@
-package Controllers;
+package Controllers.Organizator;
 
 import Exceptions.InvalidEventDetailsException;
 import Model.Event;
+import Services.UserService;
 import Validators.ValidateEventDetails;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
@@ -69,7 +70,7 @@ public class EventCreateController {
             String dateString = datePicker.getValue().format(dateFormatter);
             Event event = new Event(nameField.getText(), descriptionArea.getText(),
                     imagePath, Double.parseDouble(priceField.getText()), dateString);
-            event.setOrganizatorID("00");
+            event.setOrganizatorID(UserService.getMainUser().getUserID());
             EventService.addEvent(event);
 
             nameField.clear();

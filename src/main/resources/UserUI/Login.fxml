@@ -16,16 +16,13 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button mnemonicParsing="false" onAction="#handleLoginAction" prefHeight="40.0" prefWidth="70.0" style="-fx-border-color: ORANGE; -fx-border-width: 5;" text="Login" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-            <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="70.0" style="-fx-border-color: orange; -fx-border-width: 5;" text="Register" textAlignment="CENTER" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-            <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="70.0" style="-fx-border-color: orange; -fx-border-width: 5;" text="Exit" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-            <ChoiceBox fx:id="choiceBox" prefWidth="150.0" style="-fx-border-color: orange; -fx-border-width: 5;" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-            <PasswordField fx:id="passwordField" maxWidth="200.0" style="-fx-border-color: orange; -fx-border-width: 5;" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
-            <TextField fx:id="textField" maxWidth="200.0" style="-fx-border-color: orange; -fx-border-width: 5;" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-            <Label fx:id="label" alignment="CENTER" prefHeight="40.0" prefWidth="62.0" style="-fx-background-color: ORANGE;" text="Login" GridPane.halignment="CENTER" GridPane.valignment="TOP">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font></Label>
+            <Button onAction="#handleLoginAction" mnemonicParsing="false" text="Login" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+            <Button onAction="#handleRegisterAction" mnemonicParsing="false" text="Register" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+            <Button mnemonicParsing="false" text="Exit" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+            <ChoiceBox fx:id ="choiceBox" prefWidth="150.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+            <PasswordField fx:id ="passwordField" maxWidth="200.0" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
+            <TextField fx:id ="textField" maxWidth="200.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Label fx:id ="label" prefHeight="29.0" prefWidth="41.0" text="Login" GridPane.halignment="CENTER" GridPane.valignment="TOP" />
          </children>
       </GridPane>
    </children>

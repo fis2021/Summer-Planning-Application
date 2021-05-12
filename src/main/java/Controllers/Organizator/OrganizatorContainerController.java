@@ -1,10 +1,8 @@
-package Controllers;
+package Controllers.Organizator;
 
-import Model.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
@@ -19,7 +17,7 @@ public class OrganizatorContainerController {
     private void openBrowse(){
         mainPane.getChildren().clear();
         try {
-            VBox vBox = FXMLLoader.load(getClass().getResource("/EventUI/Event_Browse.fxml"));
+            VBox vBox = FXMLLoader.load(getClass().getResource("/EventUI/Event_Browse_Organizator.fxml"));
             mainPane.getChildren().addAll(vBox);
         }
         catch (IOException e){}

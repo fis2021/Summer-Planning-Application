@@ -1,4 +1,4 @@
-package Controllers;
+package Controllers.Participant;
 
 import Model.Event;
 import javafx.collections.FXCollections;

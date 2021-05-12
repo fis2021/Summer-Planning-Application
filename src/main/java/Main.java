@@ -1,4 +1,6 @@
+import Model.Event;
 import Services.EventService;
+import Services.UserService;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -15,9 +17,10 @@ public class Main extends Application{
     public void start(Stage primarystage) throws Exception{
         initDirectory();
         EventService.initDatabase();
-        Parent root = FXMLLoader.load(getClass().getResource("/ContainerWindows/Organizator_Container.fxml"));
-        primarystage.setTitle("ORGORG");
-        primarystage.setScene(new Scene(root,1440,800));
+        UserService.initDatabase();
+        Parent root = FXMLLoader.load(getClass().getResource("/UserUI/Login.fxml"));
+        primarystage.setTitle("Login");
+        primarystage.setScene(new Scene(root,600,400));
         primarystage.show();
     }
 
