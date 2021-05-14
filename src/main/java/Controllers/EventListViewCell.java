@@ -70,13 +70,21 @@ public class EventListViewCell extends ListCell<Event> {
             dateLabel.setText(event.getDate());
             priceLabel.setText(String.valueOf(event.getPrice()));
 
+            BufferedImage bufferedImage;
             try {
-                BufferedImage bufferedImage;
                 bufferedImage = ImageIO.read(new File(event.getImagePath()));
                 javafx.scene.image.Image image = SwingFXUtils.toFXImage(bufferedImage, null);
                 imageView.setImage(image);
             }
-            catch (Exception e){ descriptionLabel.setText("fes");};
+            catch (Exception e){
+                try {
+                    bufferedImage = ImageIO.read(new File("D:/UNI/Sem2/FIS/FIS_Project/src/main/resources/Images/404.png"));
+                    javafx.scene.image.Image image = SwingFXUtils.toFXImage(bufferedImage, null);
+                    imageView.setImage(image);
+                }
+                catch (IOException ex){}
+            }
+
 
             setText(null);
             setGraphic(gridPane);

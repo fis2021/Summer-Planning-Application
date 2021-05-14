@@ -16,6 +16,7 @@ import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
 import java.time.format.DateTimeFormatter;
 
 import Services.EventService;
@@ -51,14 +52,20 @@ public class EventCreateController {
 
         fileChooser.showOpenDialog(frame);
         File selectedFile = fileChooser.getSelectedFile();
-        try{
-            BufferedImage bufferedImage;
-            bufferedImage = ImageIO.read(selectedFile);
+        BufferedImage bufferedImage;
+        try {
+            bufferedImage = ImageIO.read(new File(imagePath));
             javafx.scene.image.Image image = SwingFXUtils.toFXImage(bufferedImage, null);
             imagePreView.setImage(image);
-            imagePath = selectedFile.getPath();
         }
-        catch (Exception e){}
+        catch (Exception e){
+            try {
+                bufferedImage = ImageIO.read(new File("D:/UNI/Sem2/FIS/FIS_Project/src/main/resources/Images/404.png"));
+                javafx.scene.image.Image image = SwingFXUtils.toFXImage(bufferedImage, null);
+                imagePreView.setImage(image);
+            }
+            catch(IOException ex){}
+        }
     }
 
     @FXML
