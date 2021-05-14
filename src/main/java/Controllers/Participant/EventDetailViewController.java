@@ -52,13 +52,20 @@ public class EventDetailViewController {
             dateLabel.setText(event.getEventID());
             priceLabel.setText(String.valueOf(event.getPrice()));
 
+            BufferedImage bufferedImage;
             try {
-                BufferedImage bufferedImage;
                 bufferedImage = ImageIO.read(new File(event.getImagePath()));
                 javafx.scene.image.Image image = SwingFXUtils.toFXImage(bufferedImage, null);
                 imageView.setImage(image);
             }
-            catch (Exception e){};
+            catch (Exception e){
+                try {
+                    bufferedImage = ImageIO.read(new File("D:/UNI/Sem2/FIS/FIS_Project/src/main/resources/Images/404.png"));
+                    javafx.scene.image.Image image = SwingFXUtils.toFXImage(bufferedImage, null);
+                    imageView.setImage(image);
+                }
+                catch(IOException ex){}
+            }
         }
         catch (IOException e){}
 

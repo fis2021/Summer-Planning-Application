@@ -86,12 +86,11 @@ public class EventEditController {
 
         fileChooser.showOpenDialog(frame);
         File selectedFile = fileChooser.getSelectedFile();
-        try{
+        try {
             BufferedImage bufferedImage;
-            bufferedImage = ImageIO.read(selectedFile);
+            bufferedImage = ImageIO.read(new File(imagePath));
             javafx.scene.image.Image image = SwingFXUtils.toFXImage(bufferedImage, null);
             imageView.setImage(image);
-            imagePath = selectedFile.getPath();
         }
         catch (Exception e){}
     }
@@ -119,13 +118,20 @@ public class EventEditController {
             datePicker.setValue(localDateObj);
             priceTextField.setText(String.valueOf(event.getPrice()));
 
+            BufferedImage bufferedImage;
             try {
-                BufferedImage bufferedImage;
-                bufferedImage = ImageIO.read(new File(event.getImagePath()));
+                bufferedImage = ImageIO.read(new File(imagePath));
                 javafx.scene.image.Image image = SwingFXUtils.toFXImage(bufferedImage, null);
                 imageView.setImage(image);
             }
-            catch (Exception e){}
+            catch (Exception e){
+                try {
+                    bufferedImage = ImageIO.read(new File("D:/UNI/Sem2/FIS/FIS_Project/src/main/resources/Images/404.png"));
+                    javafx.scene.image.Image image = SwingFXUtils.toFXImage(bufferedImage, null);
+                    imageView.setImage(image);
+                }
+                catch(IOException ex){}
+            }
         }
         catch (IOException e){
         }
