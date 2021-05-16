@@ -1,5 +1,6 @@
 package Controllers.Participant;
 
+import Exceptions.ReservationAlreadyExistsException;
 import Model.Event;
 import Model.Reservation;
 import Services.ReservationService;
@@ -14,6 +15,7 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import javax.imageio.ImageIO;
+import javax.swing.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -75,7 +77,12 @@ public class EventDetailViewController {
 
     @FXML
     private void handleReserveAction(){
-        ReservationService.addReservation(new Reservation(detailedEvent.getEventID(), UserService.getMainUser().getUserID()));
-        titleLabel.getScene().getWindow().hide();
+        try {
+            ReservationService.addReservation(new Reservation(detailedEvent.getEventID(), UserService.getMainUser().getUserID()));
+            titleLabel.getScene().getWindow().hide();
+        }
+        catch (ReservationAlreadyExistsException e){
+            JOptionPane.showMessageDialog(null, "Already Reserved", "", JOptionPane.INFORMATION_MESSAGE);
+        }
     }
 }

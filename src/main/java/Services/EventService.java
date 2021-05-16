@@ -6,6 +6,7 @@ import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.ObjectRepository;
 import Model.Event;
 
+import java.util.List;
 import java.util.Objects;
 
 import static Services.FileSystemService.getPathToFile;
@@ -18,7 +19,7 @@ public class EventService {
 
     public static void initDatabase() {
         Nitrite database = Nitrite.builder()
-                .filePath(getPathToFile("Summer-Planning-Application-Events.db").toFile())
+                .filePath(getPathToFile("hAPPen-Events.db").toFile())
                 .openOrCreate("test", "test");
 
         eventRepository = database.getRepository(Event.class);
@@ -77,4 +78,6 @@ public class EventService {
         }
         return null;
     }
+
+    public static List<Event> getAllEvents(){return eventRepository.find().toList();}
 }

@@ -73,7 +73,7 @@ public class EventEditController {
     @FXML
     private void handleChooseImageAction(){
         JFrame frame = new JFrame();
-        JFileChooser fileChooser = new JFileChooser(".");
+        JFileChooser fileChooser = new JFileChooser();
 
         fileChooser.setAcceptAllFileFilterUsed(false);
         FileNameExtensionFilter filter = new FileNameExtensionFilter("images", new String[] {"JPG", "JPEG"});

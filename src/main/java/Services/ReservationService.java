@@ -1,6 +1,7 @@
 package Services;
 
 import Exceptions.EmptyDataBaseException;
+import Exceptions.ReservationAlreadyExistsException;
 import Model.Event;
 import Model.Reservation;
 import Model.User;
@@ -9,6 +10,7 @@ import javafx.collections.ObservableList;
 import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.ObjectRepository;
 
+import java.util.List;
 import java.util.Objects;
 
 import static Services.FileSystemService.getPathToFile;
@@ -21,7 +23,7 @@ public class ReservationService {
 
     public static void initDatabase(){
         Nitrite database = Nitrite.builder()
-                .filePath(getPathToFile("Summer-Planning-Application-Rsrv.db").toFile())
+                .filePath(getPathToFile("hAPPen-Reservations.db").toFile())
                 .openOrCreate("test", "test");
 
         reservationRepository = database.getRepository(Reservation.class);
@@ -39,9 +41,17 @@ public class ReservationService {
         return m;
     }
 
-    public static void addReservation(Reservation reservation){
+    public static void addReservation(Reservation reservation) throws ReservationAlreadyExistsException{
+        checkReservationDoesNotAlreadyExist(reservation);
         reservation.setReservationID(String.valueOf(++maxRID));
         reservationRepository.insert(reservation);
+    }
+
+    private static void checkReservationDoesNotAlreadyExist(Reservation reservation) throws ReservationAlreadyExistsException{
+        for(Reservation r : reservationRepository.find()){
+            if(Objects.equals(reservation.getEventID(), r.getEventID()) && Objects.equals(reservation.getParticipantID(), r.getParticipantID()))
+                throw new ReservationAlreadyExistsException("already exitst");
+        }
     }
 
     public static void getParticipantReservations(ObservableList<Reservation> reservations) throws EmptyDataBaseException{
@@ -81,4 +91,9 @@ public class ReservationService {
         reservationRepository.remove(eq("reservationID",reservation.getReservationID()));
         reservationRepository.insert(reservation);
     }
+
+    public static List<Reservation> getAllReservations() {
+        return reservationRepository.find().toList();
+    }
+
 }

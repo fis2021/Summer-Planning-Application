@@ -11,6 +11,7 @@ import static Services.FileSystemService.getPathToFile;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 import java.util.Objects;
 
 public class UserService {
@@ -21,7 +22,7 @@ public class UserService {
 
     public static void initDatabase() {
         Nitrite database = Nitrite.builder()
-                .filePath(getPathToFile("Summer-Planing-Aplication-Users.db").toFile())
+                .filePath(getPathToFile("hAPPen-Users.db").toFile())
                 .openOrCreate("test", "test");
 
         userRepository = database.getRepository(User.class);
@@ -67,7 +68,7 @@ public class UserService {
         }
     }
 
-    private static String encodePassword(String salt, String password) {
+    static String encodePassword(String salt, String password) {
         MessageDigest md = getMessageDigest();
         md.update(salt.getBytes(StandardCharsets.UTF_8));
 
@@ -97,5 +98,7 @@ public class UserService {
 
     public static void setMainUser(User user){mainUser = user;}
     public static User getMainUser(){return mainUser;}
+
+    public static List<User> getAllUsers() {return userRepository.find().toList();}
 }
 
