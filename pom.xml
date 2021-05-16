@@ -133,7 +133,7 @@
                         <option>--add-exports</option>
                         <option>javafx.base/com.sun.javafx.event=ALL-UNNAMED</option>
                     </options>
-                    <mainClass>org.openjfx.App</mainClass>
+                    <mainClass>Main</mainClass>
                 </configuration>
             </plugin>
 
