@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fx:id="vBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: GRAY; -fx-border-color: ORANGE;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Organizator.ReservationBrowseOrganizerController">
+    <children>
+        <AnchorPane prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: GRAY; -fx-border-color: ORANGE;">
+            <children>
+                <ListView  fx:id="reservationList" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: GRAY; -fx-border-color: ORANGE;" />
+            </children>
+        </AnchorPane>
+    </children>
+</VBox>

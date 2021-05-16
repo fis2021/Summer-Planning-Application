@@ -71,9 +71,10 @@ public class EventService {
         eventRepository.insert(event);
     }
 
-    public static void temp(){
+    public static Event getEventByID(String eventID){
         for(Event event : eventRepository.find()){
-            if(Objects.equals(event.getOrganizatorID(), "00")) event.setOrganizatorID("1");
+            if(Objects.equals(event.getEventID(),eventID)) return event;
         }
+        return null;
     }
 }
