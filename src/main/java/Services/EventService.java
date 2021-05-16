@@ -80,4 +80,8 @@ public class EventService {
     }
 
     public static List<Event> getAllEvents(){return eventRepository.find().toList();}
+
+    public static void deleteEvent(Event event){
+        eventRepository.remove(event);
+    }
 }

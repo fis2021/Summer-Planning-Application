@@ -27,5 +27,6 @@
       <TextArea fx:id="descriptionTextArea" prefHeight="200.0" prefWidth="200.0" promptText="Description" style="-fx-border-color: ORANGE; -fx-border-width: 5;" wrapText="true" GridPane.rowIndex="1" />
       <Button fx:id="chooseImageButton" mnemonicParsing="false" onAction="#handleChooseImageAction" style="-fx-border-color: ORANGE; -fx-border-width: 5;" text="Choose" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
       <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#handleCancelAction" prefHeight="54.0" prefWidth="214.0" style="-fx-border-color: ORANGE; -fx-border-width: 5;" text="Cancel" GridPane.rowIndex="2" />
+      <Button fx:id="deleteButton" alignment="CENTER" mnemonicParsing="false" onAction="#handleDeleteAction" prefHeight="54.0" prefWidth="214.0" style="-fx-border-color: Orange; -fx-border-width: 5;" text="Delete" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
     </children>
 </GridPane>

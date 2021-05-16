@@ -52,6 +52,9 @@ public class EventEditController {
     private Button cancelButton;
 
     @FXML
+    private Button deleteButton;
+
+    @FXML
     private GridPane gridPane;
 
     private Event currentEvent;
@@ -68,6 +71,7 @@ public class EventEditController {
         descriptionTextArea.setEditable(false);
         chooseImageButton.setVisible(false);
         cancelButton.setVisible(false);
+        deleteButton.setVisible(false);
     }
 
     @FXML
@@ -142,6 +146,7 @@ public class EventEditController {
             chooseImageButton.setVisible(true);
             cancelButton.setVisible(true);
             editButton.setText("OK");
+            deleteButton.setVisible(true);
         }
         else{
             DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd LLLL yyyy");
@@ -156,6 +161,11 @@ public class EventEditController {
             EventService.updateEvent(editedEvent);
             gridPane.getScene().getWindow().hide();
         }
+    }
+
+    @FXML
+    private void handleDeleteAction(){
+        EventService.deleteEvent(editedEvent);
     }
 
     @FXML
