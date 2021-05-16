@@ -1,3 +1,4 @@
-# Summer-Planning-Application
+# hAPPen
+
 
 Run by mvn javafx:run
