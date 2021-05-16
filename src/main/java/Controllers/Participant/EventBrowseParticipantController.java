@@ -1,5 +1,8 @@
 package Controllers.Participant;
 
+import Comparators.EventDateComparator;
+import Comparators.EventNameComparator;
+import Comparators.EventPriceComparator;
 import Controllers.EventListViewCell;
 import Exceptions.EmptyDataBaseException;
 import Model.Event;
@@ -8,12 +11,15 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.VBox;
 import javafx.util.Callback;
 
 import java.net.URL;
+import java.util.Comparator;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class EventBrowseParticipantController implements Initializable {
@@ -22,6 +28,9 @@ public class EventBrowseParticipantController implements Initializable {
 
     @FXML
     private VBox vBox;
+
+    @FXML
+    private ChoiceBox choiceBox;
 
     private ObservableList<Event> events;
 
@@ -42,8 +51,29 @@ public class EventBrowseParticipantController implements Initializable {
         eDVController.showEvent(eventList.getSelectionModel().getSelectedItem());
     }
 
+    @FXML
+    private void sort(){
+        Comparator<Event> comparator;
+        switch (String.valueOf(choiceBox.getValue())){
+            case "Name":
+                comparator = new EventNameComparator();
+                break;
+            case "Date":
+                comparator = new EventDateComparator();
+                break;
+            case "Price":
+                comparator = new EventPriceComparator();
+                break;
+            default:
+                comparator = new EventNameComparator();
+                break;
+        }
+        FXCollections.sort(events, comparator);
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources){
+        choiceBox.getItems().addAll("Name", "Date", "Price");
         eventList.setItems(events);
         eventList.setFixedCellSize(230);
         eventList.setCellFactory(eventListView -> new EventListViewCell());
