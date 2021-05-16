@@ -5,7 +5,6 @@ import Services.EventService;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -13,16 +12,12 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import javafx.stage.Window;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
-import java.awt.event.ActionEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -99,7 +94,7 @@ public class EventEditController {
         currentEvent = event;
         imagePath = event.getImagePath();
         try{
-            FXMLLoader mLLoader = new FXMLLoader(getClass().getResource("/EventUI/Event_Edit.fxml"));
+            FXMLLoader mLLoader = new FXMLLoader(getClass().getResource("/EventUI/Organizator/Event_Edit_Organizer.fxml"));
             mLLoader.setController(this);
             Parent root = mLLoader.load();
             Stage stage = new Stage();

@@ -46,11 +46,6 @@ public class EventBrowseParticipantController implements Initializable {
     public void initialize(URL location, ResourceBundle resources){
         eventList.setItems(events);
         eventList.setFixedCellSize(230);
-        eventList.setCellFactory(new Callback<ListView<Event>, ListCell<Event>>() {
-            @Override
-            public ListCell<Event> call(ListView<Event> eventListView) {
-                return new EventListViewCell();
-            }
-        });
+        eventList.setCellFactory(eventListView -> new EventListViewCell());
     }
 }

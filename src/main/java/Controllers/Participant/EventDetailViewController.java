@@ -1,12 +1,12 @@
 package Controllers.Participant;
 
 import Model.Event;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import Model.Reservation;
+import Services.ReservationService;
+import Services.UserService;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -17,8 +17,6 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public class EventDetailViewController {
     @FXML
@@ -36,10 +34,14 @@ public class EventDetailViewController {
     @FXML
     private Label descriptionLabel;
 
+    private Event detailedEvent;
+
     public void showEvent(Event event){
+        detailedEvent = event;
+
         Parent root;
         try{
-            FXMLLoader mLLoader = new FXMLLoader(getClass().getResource("/EventUI/Event_Detail_View.fxml"));
+            FXMLLoader mLLoader = new FXMLLoader(getClass().getResource("/EventUI/Participant/Event_Detail_View_Participant.fxml"));
             mLLoader.setController(this);
             root = mLLoader.load();
             Stage stage = new Stage();
@@ -71,4 +73,9 @@ public class EventDetailViewController {
 
     }
 
+    @FXML
+    private void handleReserveAction(){
+        ReservationService.addReservation(new Reservation(detailedEvent.getEventID(), UserService.getMainUser().getUserID()));
+        titleLabel.getScene().getWindow().hide();
+    }
 }

@@ -88,6 +88,13 @@ public class UserService {
         return md;
     }
 
+    public static User getUserByID(String userID){
+        for(User user : userRepository.find()){
+            if(Objects.equals(user.getUserID(),userID)) return user;
+        }
+        return null;
+    }
+
     public static void setMainUser(User user){mainUser = user;}
     public static User getMainUser(){return mainUser;}
 }

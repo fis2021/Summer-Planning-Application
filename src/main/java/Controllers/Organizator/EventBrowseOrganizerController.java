@@ -16,7 +16,7 @@ import javafx.util.Callback;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class EventBrowseOrganizatorController implements Initializable {
+public class EventBrowseOrganizerController implements Initializable {
 
     @FXML
     private ListView<Event> eventList;
@@ -26,7 +26,7 @@ public class EventBrowseOrganizatorController implements Initializable {
 
     private ObservableList<Event> events;
 
-    public EventBrowseOrganizatorController(){
+    public EventBrowseOrganizerController(){
         events = FXCollections.observableArrayList();
         try {
             EventService.getOrganizatorEvents(events);
